@@ -1,5 +1,6 @@
 package devkidult.git.springuserapi.domain
 
+import devkidult.git.springuserapi.enums.Role
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
@@ -35,9 +36,12 @@ class User(
     @Column(length = 255, nullable = false)
     var password: String,
 
-    @Column(length = 10, nullable = false)
+    @Column(length = 20, nullable = false)
     var name: String,
 
     @Column(length = 11, nullable = false)
     var phone: String,
+
+    @Column(length = 20, nullable = false)
+    var role: Role = Role.USER
 )

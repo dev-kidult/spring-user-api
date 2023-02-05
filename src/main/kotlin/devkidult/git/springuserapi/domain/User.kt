@@ -11,6 +11,7 @@ import javax.persistence.UniqueConstraint
 
 @Entity
 @Table(
+    name = "users",
     indexes = [Index(name = "idx_email", columnList = "email"), Index(name = "idx_phone", columnList = "phone")],
     uniqueConstraints = [
         UniqueConstraint(name = "uq_email", columnNames = ["email"]),
@@ -37,6 +38,6 @@ class User(
     @Column(length = 10, nullable = false)
     var name: String,
 
-    @Column(length = 15, nullable = false)
+    @Column(length = 11, nullable = false)
     var phone: String,
 )

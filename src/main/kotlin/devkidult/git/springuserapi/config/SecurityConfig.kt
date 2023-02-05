@@ -22,7 +22,8 @@ class SecurityConfig {
             .cors().and()
             .authorizeRequests()
             .requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
-            .antMatchers("/api/**").permitAll()
+            .antMatchers("/api/auth/**", "/h2-console").permitAll()
+            .anyRequest().authenticated()
             .and()
             .formLogin().disable()
 

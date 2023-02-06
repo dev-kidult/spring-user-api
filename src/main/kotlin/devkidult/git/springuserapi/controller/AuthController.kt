@@ -28,4 +28,7 @@ class AuthController(private val authService: AuthService, private val smsVerify
     @PostMapping("/sign-up")
     @ResponseStatus(HttpStatus.CREATED)
     fun signUp(@Validated @RequestBody request: UserDto.Request) = authService.signUp(request)
+
+    @PostMapping("/new-password")
+    fun newPassword(@Validated @RequestBody request: UserDto.PasswordRequest) = authService.newPassword(request)
 }

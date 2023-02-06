@@ -46,17 +46,20 @@ class UserDto {
         val role: Role,
     )
 
-    data class PasswordRequest(
+    data class PhoneRequest(
         @field:NotBlank
         @field:Pattern(regexp = "^\\d{8,11}$")
         @field:Size(min = 11, max = 11)
         val phone: String,
-        @field:NotBlank
-        @field:Size(min = 4, max = 30)
-        val password: String,
+    )
+
+    data class PasswordRequest(
         @field:NotBlank
         @field:Size(min = 4, max = 30)
         val newPassword: String,
+        @field:NotBlank
+        @field:Size(min = 4, max = 30)
+        val repeatPassword: String,
     )
 
     data class PasswordResponse(

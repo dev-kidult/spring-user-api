@@ -37,7 +37,7 @@ class AuthService(
                 .or(user.phone.eq(request.phone))
         )
 
-    fun newPassword(request: UserDto.PasswordRequest): UserDto.PasswordResponse {
+    fun newPassword(request: UserDto.PhoneRequest): UserDto.PasswordResponse {
         smsVerifyService.verifiedAndDelete(request.phone)
         val newPassword = RandomString.make(8)
         val user = userRepository.findOne(user.phone.eq(request.phone)).orElseThrow { IllegalArgumentException("NOT_FOUND_USER") }

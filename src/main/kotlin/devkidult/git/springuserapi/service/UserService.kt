@@ -36,11 +36,9 @@ class UserService(
 
     fun getMe(): UserDto.Me = getUserByPrincipal().let { objectMapper.convertValue(user, UserDto.Me::class.java) }
 
-    fun changePassword(): UserDto.PasswordResponse {
-        val newPassword = RandomString.make(8)
+    fun changePassword(request: UserDto.PasswordRequest) {
+        if (request.newPassword != request.repeatPassword) throw IllegalArgumentException("WRONG PASSWORD")
         val user = getUserByPrincipal()
-        user.password = passwordEncoder.encode(newPassword)
-        // NOTE 실제론 새로운 비밀번호를 response로 않고 메일이라던지 SMS라던지 다른체널로 새 비밀번호 전달
-        return UserDto.PasswordResponse(password = newPassword)
+        user.password = passwordEncoder.encode(request.newPassword)
     }
 }

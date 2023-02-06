@@ -39,10 +39,27 @@ class UserDto {
     )
 
     data class Me(
-        var email: String,
-        var nickname: String,
-        var name: String,
-        var phone: String,
-        var role: Role,
+        val email: String,
+        val nickname: String,
+        val name: String,
+        val phone: String,
+        val role: Role,
+    )
+
+    data class PasswordRequest(
+        @field:NotBlank
+        @field:Pattern(regexp = "^\\d{8,11}$")
+        @field:Size(min = 11, max = 11)
+        val phone: String,
+        @field:NotBlank
+        @field:Size(min = 4, max = 30)
+        val password: String,
+        @field:NotBlank
+        @field:Size(min = 4, max = 30)
+        val newPassword: String,
+    )
+
+    data class PasswordResponse(
+        val password: String
     )
 }

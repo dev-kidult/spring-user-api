@@ -1,5 +1,6 @@
 package devkidult.git.springuserapi.dto
 
+import devkidult.git.springuserapi.enums.Role
 import javax.validation.constraints.Email
 import javax.validation.constraints.NotBlank
 import javax.validation.constraints.Pattern
@@ -35,5 +36,13 @@ class UserDto {
         @field:NotBlank
         @field:Size(min = 6, max = 6)
         val code: String,
+    )
+
+    data class Me(
+        var email: String,
+        var nickname: String,
+        var name: String,
+        var phone: String,
+        var role: Role,
     )
 }

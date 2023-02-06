@@ -1,0 +1,44 @@
+###
+GET http://localhost:8080/api/auth/verify-code?phone=01012341234
+
+###
+POST http://localhost:8080/api/auth/verify-code
+Content-Type: application/json
+
+{
+  "phone": "01012341234",
+  "code": "A1BC2D"
+}
+
+###
+POST http://localhost:8080/api/auth/sign-up
+Content-Type: application/json
+
+{
+  "email":"doole3488@gmail.com",
+  "phone":"01012345555",
+  "password":"1234",
+  "nickname":"nickname",
+  "name":"name"
+}
+
+###
+POST http://localhost:8080/api/auth/new-password
+Content-Type: application/json
+
+{
+  "phone": "01012341234"
+}
+
+###
+GET http://localhost:8080/api/users/me
+Content-Type: application/json
+
+###
+PUT http://localhost:8080/api/users/password
+Content-Type: application/json
+
+{
+  "newPassword": "123455",
+  "repeatPassword": "123455"
+}

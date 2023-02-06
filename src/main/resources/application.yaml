@@ -21,3 +21,6 @@ spring:
     store-type: jdbc
     jdbc:
       initialize-schema: always
+  redis:
+    host: localhost
+    port: 6379
